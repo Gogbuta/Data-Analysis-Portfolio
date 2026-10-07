@@ -40,6 +40,4 @@ and identified key patterns in the dataset.
 Analyzed customer support tickets to identify trends
 in resolution time, ticket volume and customer issues.
 
-
-LinkedIn: [Your LinkedIn]
 Email: [Your Email]
