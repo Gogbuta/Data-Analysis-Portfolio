@@ -1,0 +1,52 @@
+# E-Commerce Customer Segmentation & RFM Analysis
+
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![Scikit-Learn](https://img.shields.io/badge/Library-Scikit--Learn-orange.svg)](https://scikit-learn.org/)
+[![Pandas](https://img.shields.io/badge/Library-Pandas-green.svg)](https://pandas.pydata.org/)
+[![Status](https://img.shields.io/badge/Status-Complete-success.svg)]()
+
+## Project Overview
+Understanding customer purchasing behavior is essential for improving marketing ROI and reducing churn. This project applies **RFM (Recency, Frequency, Monetary) Analysis** and **K-Means Clustering** to segment an e-commerce customer base into distinct behavioral cohorts. 
+
+Instead of sending the same promotions to every shopper, these segments allow the marketing team to target VIP buyers, re-engage high-value customers before they churn, and avoid overspending on inactive accounts.
+
+---
+
+## Tech Stack
+- **Language:** Python
+- **Data Manipulation:** Pandas, NumPy
+- **Machine Learning:** Scikit-Learn (`StandardScaler`, `KMeans`)
+- **Data Visualization:** Matplotlib, Seaborn
+
+---
+
+## Methodology & Workflow
+1. **Data Cleaning & Aggregation:** Processed 10,000 transaction records and grouped them by `Customer_ID` to calculate:
+   - **Recency (R):** Days since the customer's last purchase.
+   - **Frequency (F):** Total number of orders placed.
+   - **Monetary (M):** Total money spent.
+2. **Feature Scaling & Transformation:** Applied logarithmic transformation ($\log(x + 1)$) to fix right-skewed spending distributions, followed by `StandardScaler` so all three metrics carry equal weight.
+3. **Finding Optimal Clusters (Elbow Method):** Tested $k = 1$ to $10$ clusters and plotted Within-Cluster Sum of Squares (Inertia), confirming **$k = 4$** as the optimal number of customer groups.
+4. **Customer Clustering:** Grouped customers using K-Means and mapped each cluster to a clear business persona.
+
+---
+
+## Customer Segments
+
+| Cluster | Segment Persona 
+| **0** | **Champions** 
+| **1** | **At-Risk High-Value** 
+**2** | **Recent / Casual Buyers** 
+| **3** | **Hibernating / Low-Value** 
+
+##  Business Recommendations
+1. **Reward the Champions (Cluster 0):** Offer early access to new products, loyalty points, and free shipping to keep them engaged without cutting into profit margins with heavy discounts.
+2. **Win Back At-Risk Spenders (Cluster 1):** Send automated "We Miss You" emails with a personalized discount. Winning back just 15% of this group protects thousands of dollars in annual revenue.
+3. **Upsell Recent Buyers (Cluster 2):** Send product recommendations based on their recent order to encourage a second purchase within 30 days.
+4. **Cut Ad Spend on Hibernating Users (Cluster 3):** Do not waste expensive discounts on this group; keep them on low-cost automated newsletter lists.
+
+---
+
+## Files in This Folder
+- `E-COMMERCE_rfm.IPYNB` *(or `ecommerce_rfm_analysis.ipynb`)*: Complete Jupyter Notebook with code, charts, and explanations.
+- `README.md`: Project documentation and summary of findings.
