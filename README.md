@@ -1,8 +1,8 @@
-# 📊 Data Analysis Portfolio — Gogbuta
+# Data Analysis Portfolio — Glory Ogbuta
 
-Welcome to my Data Analytics Portfolio! This repository contains end-to-end data analysis, SQL database querying, and machine learning projects focused on solving real-world business problems across E-Commerce, Supply Chain Logistics, and Public/Social Research.
+Welcome to my Data Analytics Portfolio! This repository contains end-to-end data analysis, SQL database querying projects focused on solving real-world business problems across E-Commerce, Supply Chain Logistics, and Public/Social Research.
 
-## 🛠️ Core Technical Skills
+## Core Technical Skills
 - **Programming & Analytics:** Python (Pandas, NumPy, Scikit-Learn, SciPy)
 - **Databases & Querying:** SQL (SQLite, PostgreSQL — CTEs, Window Functions, Joins)
 - **Data Visualization & BI:** Matplotlib, Seaborn, Tableau, Power BI, Microsoft Excel
@@ -10,9 +10,9 @@ Welcome to my Data Analytics Portfolio! This repository contains end-to-end data
 
 ---
 
-## 📂 Featured Projects
+##  Featured Projects
 
-### 1. [🛒 E-Commerce Customer Segmentation & RFM Analysis](./E-COMMERCE_rfm.IPYNB)
+### 1. [E-Commerce Customer Segmentation & RFM Analysis](./E-COMMERCE_rfm.IPYNB)
 - **Objective:** Segment an e-commerce customer base into actionable behavioral personas to optimize marketing retention spend and reduce churn.
 - **Tech Stack:** Python (`pandas`, `scikit-learn`, `matplotlib`, `seaborn`)
 - **Key Techniques:** Recency-Frequency-Monetary (RFM) engineering, Log Transformation, StandardScaler, Elbow Method, K-Means Clustering ($k=4$).
@@ -20,7 +20,7 @@ Welcome to my Data Analytics Portfolio! This repository contains end-to-end data
 
 ---
 
-### 2. [🚚 Supply Chain & Delivery Bottleneck Analysis (SQL + Python)](./Supply_Chain.ipynb)
+### 2. [Supply Chain & Delivery Bottleneck Analysis (SQL + Python)](./Supply_Chain.ipynb)
 - **Companion SQL Script:** [`queries.sql`](./queries.sql) | **Database:** [`supply_chain.db`](./supply_chain.db)
 - **Objective:** Investigate fulfillment and transit delays across 4 regional warehouses and 5 third-party logistics (3PL) carriers (5,000+ shipments) to find out why On-Time Delivery (OTD) rates were falling short of the 80% SLA target.
 - **Tech Stack:** SQL (CTEs, `DENSE_RANK`, `LAG`, Window Frames) + Python (`sqlite3`, `pandas`, `seaborn`)
@@ -30,7 +30,7 @@ Welcome to my Data Analytics Portfolio! This repository contains end-to-end data
 
 ---
 
-### 3. [🌱 Early Childhood Development Analysis](./Early_Childhood_development.ipynb)
+### 3. [Early Childhood Development Analysis](./Early_Childhood_development.ipynb)
 - **Objective:** Exploratory data analysis and statistical investigation into key factors influencing early childhood development outcomes.
 - **Tech Stack:** Python (`pandas`, `matplotlib`, `seaborn`)
 
