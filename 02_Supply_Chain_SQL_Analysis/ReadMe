@@ -1,0 +1,58 @@
+#  Supply Chain & Delivery Bottleneck Analysis (SQL + Python)
+
+[![SQL](https://img.shields.io/badge/SQL-SQLite%20%7C%20PostgreSQL-blue.svg)]()
+[![Python](https://img.shields.io/badge/Python-3.8%2B-yellow.svg)](https://www.python.org/)
+[![Visualization](https://img.shields.io/badge/Visualization-Matplotlib%20%7C%20Seaborn-green.svg)]()
+[![Status](https://img.shields.io/badge/Status-Complete-success.svg)]()
+
+## Project Overview
+Late deliveries hurt customer trust and drive up support costs. This project analyzes 5,000+ shipments across **4 regional warehouses** and **5 third-party logistics (3PL) shipping carriers** to find out why company-wide On-Time Delivery (OTD) rates were falling below our **80% target SLA**.
+
+Using **advanced SQL queries** (CTEs, Window Functions, multi-table `JOIN`s) and **Python visualizations**, this analysis separates **internal warehouse packing delays** from **external carrier transit delays** to pinpoint the exact bottlenecks holding back delivery performance.
+
+---
+
+##  Tech Stack & SQL Skills
+- **SQL Techniques:** Common Table Expressions , Window Functions , `CASE WHEN` pivoting, multi-table `JOIN`s, and date arithmetic (`JULIANDAY`, `STRFTIME`).
+- **Python Libraries:** `sqlite3`, `pandas`, `numpy`, `matplotlib`, `seaborn`.
+
+---
+
+##  Key Questions Answered
+1. **Carrier Reliability:** Which shipping carriers deliver on time, and is our cheapest carrier actually costing us customers?
+2. **Warehouse vs. Carrier Delays:** When an order arrives late, did the delay happen inside our own warehouse (`dispatch_date - order_date`) or on the road (`actual_delivery_date - dispatch_date`)?
+3. **Monthly Cost & Delay Trends:** How do monthly late delivery rates compare against our 3-month rolling freight spend?
+
+---
+
+## Key Findings
+
+### 1. Shipping Carrier Scorecard 
+| Carrier Name | Transport Mode | On-Time Delivery Rate (%) | Target SLA Benchmark | Performance Summary |
+| **Coastal Transit Group** | Rail/Road | **~78.5%** | 80.0% | **#1 Most Reliable** — Just shy of the 80% goal. |
+| **SwiftHaul Logistics** | Road | **~78.0%** | 80.0% | **#2 Reliable** — Consistent road carrier. |
+| **PrimeLine Carriers** | Road | **~78.0%** | 80.0% | **#3 Reliable** — Consistent road carrier. |
+| **AeroExpress Cargo** | Air | **~65.1%** | 80.0% | **Underperforming** — High cost ($145/order), delayed by warehouse backlogs. |
+| **Apex Freight** | Road | **~21.2%** | 80.0% | **Critical Failure** — nearly 80% of orders arrive late. |
+
+### 2. Regional Warehouse Packing Speeds
+| Warehouse Facility | Region | Avg. Warehouse Packing Time | Avg. Carrier Road Time | Warehouse SLA Breach Rate (>2 Days) |
+| **Southern Port Facility** | South | **2.98 Days** | 4.52 Days | **64.84%** |
+| **Northern Fulfillment Hub** | North | 0.96 Days | 4.48 Days | 4.92% |
+| **Eastern Distribution Center** | East | 0.94 Days | 4.55 Days | 4.75% |
+| **Western Regional Depot** | West | 0.95 Days | 4.50 Days | 4.82% |
+
+---
+
+##  Business Recommendations
+1. **Move Orders Away from Apex Freight:** *Apex Freight* only delivers on time **21% of the time**, failing our 80% target by a huge margin. Even though they are ~$7 cheaper per order, they cause massive delays. Moving their orders to our top three carriers (*Coastal Transit Group*, *SwiftHaul Logistics*, and *PrimeLine Carriers*) will immediately boost company-wide on-time deliveries by **+14%**.
+2. **Speed Up the Southern Port Warehouse to Pass the 80% Goal:** None of our carriers reached the 80% target line—our best three carriers got stuck right at **~78%**. This happens because our own *Southern Port Facility* takes **3 full days** just to pack and hand over boxes, so carriers start the trip already behind schedule. Reducing Southern warehouse packing time to under 2 days will push *Coastal Transit*, *SwiftHaul*, and *PrimeLine* well above **85% on-time**.
+3. **Pack Air Cargo Orders First (AeroExpress Cargo):** Customers pay high prices ($145) for fast air shipping with *AeroExpress Cargo*, but their on-time rate is only **65%**. The planes aren't slow—the boxes are sitting unpacked inside the Southern warehouse for 3 days. Putting air orders at the front of the packing line for same-day dispatch will fix express delivery delays.
+
+---
+
+##  Files in This Folder
+- `Supply_Chain.ipynb`: End-to-end Jupyter Notebook (creates the database, runs SQL queries, and plots charts).
+- `queries.sql`: Standalone SQL script containing all CTE and Window Function queries.
+- `supply_chain.db`: Normalized SQLite relational database (`vendors`, `warehouses`, `shipments`).
+- `README.md`: Project overview and business recommendations.
